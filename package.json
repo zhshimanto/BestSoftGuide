@@ -6,7 +6,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "deploy": "npm run generate && echo 'Build complete! Upload .output/public/ to Hostinger'"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",

@@ -3,6 +3,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss'],
   css: ['~/assets/css/main.css'],
+  
+  // Hostinger deployment settings
+  nitro: {
+    preset: 'static'
+  },
+  
+  // Generate static site
+  ssr: false,
   app: {
     head: {
       title: 'BestSoftGuide - Software Reviews & Recommendations',
