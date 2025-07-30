@@ -18,9 +18,6 @@
 
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex space-x-8">
-          <NuxtLink to="/" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors duration-200">
-            Home
-          </NuxtLink>
           <NuxtLink to="/reviews" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors duration-200">
             Reviews
           </NuxtLink>
@@ -33,13 +30,10 @@
           <NuxtLink to="/blog" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors duration-200">
             Blog
           </NuxtLink>
-          <NuxtLink to="/about" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors duration-200">
-            About
-          </NuxtLink>
         </nav>
 
         <!-- Search Bar -->
-        <div class="hidden lg:flex items-center flex-1 max-w-lg mx-8">
+        <div class="hidden lg:flex items-center max-w-md mx-6">
           <div class="relative w-full">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -79,9 +73,6 @@
     <!-- Mobile menu -->
     <div v-show="mobileMenuOpen" class="md:hidden">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
-        <NuxtLink to="/" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-md">
-          Home
-        </NuxtLink>
         <NuxtLink to="/reviews" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-md">
           Reviews
         </NuxtLink>
@@ -93,9 +84,6 @@
         </NuxtLink>
         <NuxtLink to="/blog" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-md">
           Blog
-        </NuxtLink>
-        <NuxtLink to="/about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-md">
-          About
         </NuxtLink>
         
         <!-- Mobile Search -->

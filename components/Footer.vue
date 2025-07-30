@@ -69,6 +69,11 @@
                 Blog
               </NuxtLink>
             </li>
+            <li>
+              <NuxtLink to="/about" class="text-secondary-300 hover:text-white transition-colors duration-200">
+                About
+              </NuxtLink>
+            </li>
           </ul>
         </div>
 

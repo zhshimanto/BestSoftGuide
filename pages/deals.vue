@@ -1,13 +1,13 @@
 <template>
   <div class="min-h-screen bg-gray-50">
     <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-green-600 to-green-800 text-white py-16">
+    <section class="bg-gradient-to-r from-primary-600 to-primary-800 text-white py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
           <h1 class="text-4xl md:text-5xl font-bold mb-4">
             Best Software Deals
           </h1>
-          <p class="text-xl text-green-100 max-w-3xl mx-auto">
+          <p class="text-xl text-primary-100 max-w-3xl mx-auto">
             Save money on the best software with our curated deals and discounts.
           </p>
         </div>
@@ -44,7 +44,7 @@
                 :href="deal.link"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="w-full inline-flex items-center justify-center px-6 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition-colors duration-200"
+                class="w-full inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors duration-200"
               >
                 Get Deal
                 <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
