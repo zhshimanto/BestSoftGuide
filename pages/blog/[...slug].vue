@@ -103,8 +103,21 @@
 // Get the current route
 const route = useRoute()
 
-// Fetch the blog post content
-const { data } = await queryContent(route.path).findOne()
+// Static blog post data
+const blogData = {
+  '/blog/best-productivity-apps-2024': {
+    title: '10 Best Productivity Apps for 2024',
+    description: 'Discover the top productivity applications that will boost your efficiency and help you get more done in 2024.',
+    category: 'Blog',
+    author: 'BestSoftGuide Team',
+    published_date: '2024-01-20',
+    updated_date: '2024-01-20',
+    tags: ['productivity', 'apps', '2024', 'efficiency'],
+    featured: true
+  }
+}
+
+const data = computed(() => blogData[route.path] || null)
 
 // SEO
 useHead({
@@ -119,15 +132,8 @@ useHead({
   ]
 })
 
-// Fetch related posts (excluding current)
-const { data: allPosts } = await queryContent('/blog').find()
-const relatedPosts = computed(() => {
-  if (!allPosts.value) return []
-  
-  return allPosts.value
-    .filter(post => post._path !== route.path)
-    .slice(0, 3)
-})
+// Related posts (static)
+const relatedPosts = ref([])
 
 // Helper function to format dates
 const formatDate = (dateString) => {

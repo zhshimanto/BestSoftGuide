@@ -137,12 +137,24 @@ useHead({
   ]
 })
 
-// Fetch all blog posts
-const { data: blogPosts } = await queryContent('/blog').sort({ published_date: -1 }).find()
+// Static blog posts data
+const blogPosts = ref([
+  {
+    _path: '/blog/best-productivity-apps-2024',
+    title: '10 Best Productivity Apps for 2024',
+    description: 'Discover the top productivity applications that will boost your efficiency and help you get more done in 2024.',
+    category: 'Blog',
+    author: 'BestSoftGuide Team',
+    published_date: '2024-01-20',
+    updated_date: '2024-01-20',
+    tags: ['productivity', 'apps', '2024', 'efficiency'],
+    featured: true
+  }
+])
 
 // Get popular tags
 const popularTags = computed(() => {
-  const allTags = blogPosts.value?.flatMap(post => post.tags || []) || []
+  const allTags = blogPosts.value.flatMap(post => post.tags || [])
   const tagCounts = allTags.reduce((acc, tag) => {
     acc[tag] = (acc[tag] || 0) + 1
     return acc
