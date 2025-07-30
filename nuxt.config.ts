@@ -4,13 +4,17 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss'],
   css: ['~/assets/css/main.css'],
   
-  // Hostinger deployment settings
+  // Static generation settings
   nitro: {
-    preset: 'static'
+    preset: 'static',
+    prerender: {
+      crawlLinks: true,
+      routes: ['/sitemap.xml']
+    }
   },
   
-  // Generate static site
-  ssr: false,
+  // Static site generation
+  ssr: true,
   app: {
     head: {
       title: 'BestSoftGuide - Software Reviews & Recommendations',
