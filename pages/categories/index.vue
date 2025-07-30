@@ -21,12 +21,27 @@
           <div 
             v-for="category in categories" 
             :key="category.name"
-            class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 p-6"
+            :class="[
+              'bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 p-6 relative',
+              category.featured ? 'ring-2 ring-primary-200' : ''
+            ]"
           >
+            <!-- Featured Badge -->
+            <div v-if="category.featured" class="absolute -top-2 -right-2 bg-primary-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+              HIGH VALUE
+            </div>
+            
             <div class="text-4xl mb-4">{{ category.icon }}</div>
             <h3 class="text-xl font-bold text-gray-900 mb-2">{{ category.name }}</h3>
             <p class="text-gray-600 mb-4">{{ category.description }}</p>
-            <div class="text-sm text-gray-500 mb-4">{{ category.count }} reviews</div>
+            
+            <div class="flex justify-between items-center mb-4">
+              <div class="text-sm text-gray-500">{{ category.count }} reviews</div>
+              <div v-if="category.commission" class="text-sm font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">
+                {{ category.commission }}
+              </div>
+            </div>
+            
             <NuxtLink 
               :to="`/categories/${category.slug}`"
               class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium"
@@ -55,46 +70,81 @@ useHead({
 // Static categories data
 const categories = ref([
   {
-    name: 'Productivity',
-    slug: 'productivity',
-    icon: '⚡',
-    description: 'Tools to boost your efficiency and get more done.',
-    count: 15
+    name: 'Email Marketing',
+    slug: 'email-marketing',
+    icon: '📧',
+    description: 'Email marketing platforms and automation tools with high recurring commissions',
+    count: 8,
+    commission: '30% recurring',
+    featured: true
   },
   {
-    name: 'Design',
+    name: 'E-commerce',
+    slug: 'ecommerce',
+    icon: '🛒',
+    description: 'Online store platforms and e-commerce solutions with premium affiliate rates',
+    count: 12,
+    commission: '200% bounty',
+    featured: true
+  },
+  {
+    name: 'CRM',
+    slug: 'crm',
+    icon: '📊',
+    description: 'Customer relationship management and sales tools',
+    count: 15,
+    commission: '100% first month',
+    featured: true
+  },
+  {
+    name: 'Design Tools',
     slug: 'design',
     icon: '🎨',
-    description: 'Creative tools for designers and visual artists.',
-    count: 12
+    description: 'Creative design software and graphic tools for businesses',
+    count: 10,
+    commission: 'High conversion',
+    featured: true
   },
   {
-    name: 'Development',
-    slug: 'development',
-    icon: '💻',
-    description: 'Essential tools for developers and programmers.',
-    count: 18
+    name: 'SEO Tools',
+    slug: 'seo',
+    icon: '🔍',
+    description: 'Search engine optimization and digital marketing tools',
+    count: 8,
+    commission: '40% recurring',
+    featured: true
+  },
+  {
+    name: 'Project Management',
+    slug: 'project-management',
+    icon: '📋',
+    description: 'Project management and team collaboration platforms',
+    count: 12,
+    commission: '25% recurring'
+  },
+  {
+    name: 'AI Tools',
+    slug: 'ai-tools',
+    icon: '🤖',
+    description: 'Artificial intelligence and automation software',
+    count: 6,
+    commission: '30% recurring'
   },
   {
     name: 'Communication',
     slug: 'communication',
     icon: '💬',
-    description: 'Team collaboration and communication platforms.',
-    count: 8
-  },
-  {
-    name: 'Marketing',
-    slug: 'marketing',
-    icon: '📈',
-    description: 'Tools to grow your business and reach customers.',
-    count: 10
+    description: 'Team communication and video conferencing tools',
+    count: 8,
+    commission: '25% recurring'
   },
   {
     name: 'Security',
     slug: 'security',
     icon: '🔒',
-    description: 'Protect your data and maintain privacy.',
-    count: 6
+    description: 'Cybersecurity, VPN, and password management tools',
+    count: 6,
+    commission: '30% recurring'
   }
 ])
 </script>
