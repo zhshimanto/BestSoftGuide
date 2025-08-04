@@ -48,7 +48,7 @@ export default defineNuxtConfig({
         { name: 'description', content: 'Discover the best software solutions with our comprehensive reviews and recommendations.' }
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+        { rel: 'icon', type: 'image/webp', href: '/images/bestsoftguide/Best-soft-favicon.webp' }
       ]
     }
   }

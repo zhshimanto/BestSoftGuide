@@ -6,12 +6,7 @@
         <div class="flex-shrink-0">
           <NuxtLink to="/" class="flex items-center">
             <div class="flex items-center space-x-2">
-              <div class="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
-                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-              </div>
-              <span class="text-xl font-bold text-gray-900">BestSoftGuide</span>
+              <img src="/images/bestsoftguide/BestSoftGuide.webp" alt="BestSoftGuide Logo" class="h-10" />
             </div>
           </NuxtLink>
         </div>
