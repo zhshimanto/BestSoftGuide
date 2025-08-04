@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=22.0.0"
+    "node": ">=18.0.0"
   },
   "imports": {
     "#internal/nuxt/*": "./.nuxt/dist/server/*"
@@ -26,6 +26,6 @@
     "@heroicons/vue": "^2.0.18",
     "@nuxt/content": "^3.6.3",
     "@nuxtjs/tailwindcss": "^6.8.4",
-    "better-sqlite3": "^12.2.0"
+    "better-sqlite3": "^8.7.0"
   }
 }

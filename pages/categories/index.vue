@@ -1,13 +1,13 @@
 <template>
-  <div class="min-h-screen bg-gray-50 dark:bg-gray-900">
+  <div class="min-h-screen bg-white">
     <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-primary-600 to-primary-800 text-white py-16">
+    <section class="bg-gradient-to-r from-blue-50 to-indigo-50 py-16 border-b border-gray-100">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
-          <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
             Software Categories
           </h1>
-          <p class="text-xl text-primary-100 max-w-3xl mx-auto">
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
             Explore software by category to find the perfect tools for your specific needs.
           </p>
         </div>
@@ -15,7 +15,7 @@
     </section>
 
     <!-- Categories Grid -->
-    <section class="py-16">
+    <section class="py-16 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Empty state when no categories -->
         <div v-if="categories.length === 0" class="text-center py-16">
@@ -24,8 +24,8 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
             </svg>
           </div>
-          <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-2">Categories Coming Soon</h3>
-          <p class="text-gray-600 dark:text-gray-300 max-w-md mx-auto">We're organizing our software reviews by category. Check back soon as we add new categories and reviews.</p>
+          <h3 class="text-lg font-medium text-gray-900 mb-2">Categories Coming Soon</h3>
+          <p class="text-gray-600 max-w-md mx-auto">We're organizing our software reviews by category. Check back soon as we add new categories and reviews.</p>
           <div class="mt-6">
             <NuxtLink to="/" class="inline-flex items-center px-4 py-2 bg-primary-600 text-white text-sm font-medium rounded-lg hover:bg-primary-700 transition-colors duration-200">
               Back to Home
@@ -41,17 +41,17 @@
           <div 
             v-for="category in sortedCategories" 
             :key="category.slug"
-            class="bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 p-6 relative"
+            class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 p-6 relative border border-gray-100"
           >
             <div class="flex items-center mb-4">
               <Icon :name="category.icon" class="text-primary-600 w-8 h-8 mr-3" />
-              <h3 class="text-xl font-bold text-gray-900 dark:text-white">{{ category.name }}</h3>
+              <h3 class="text-xl font-bold text-gray-900">{{ category.name }}</h3>
             </div>
             
-            <p class="text-gray-600 dark:text-gray-300 mb-4">{{ category.description }}</p>
+            <p class="text-gray-600 mb-4">{{ category.description }}</p>
             
             <div class="flex justify-between items-center mb-4">
-              <div class="text-sm text-gray-500 dark:text-gray-400">{{ category.reviewCount }} {{ category.reviewCount === 1 ? 'review' : 'reviews' }}</div>
+              <div class="text-sm text-gray-500">{{ category.reviewCount }} {{ category.reviewCount === 1 ? 'review' : 'reviews' }}</div>
             </div>
             
             <NuxtLink 

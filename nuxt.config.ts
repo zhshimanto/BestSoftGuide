@@ -4,6 +4,13 @@ export default defineNuxtConfig({
     // Enable compatibility features for Node.js v18
     payloadExtraction: false
   },
+  
+  // Google Analytics configuration
+  runtimeConfig: {
+    public: {
+      googleAnalyticsId: 'G-1WT7R3JBL2'
+    }
+  },
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', '@nuxt/content'],
   

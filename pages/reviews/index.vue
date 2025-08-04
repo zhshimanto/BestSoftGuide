@@ -1,13 +1,13 @@
 <template>
-  <div class="min-h-screen bg-gray-50">
+  <div class="min-h-screen bg-white">
     <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-primary-600 to-primary-800 text-white py-16">
+    <section class="bg-gradient-to-r from-blue-50 to-indigo-50 py-16 border-b border-gray-100">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
-          <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
             Software Reviews
           </h1>
-          <p class="text-xl text-primary-100 max-w-3xl mx-auto">
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
             Honest, in-depth reviews to help you choose the right software for your needs.
           </p>
         </div>
@@ -15,7 +15,7 @@
     </section>
 
     <!-- Reviews Grid -->
-    <section class="py-16">
+    <section class="py-16 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Filter Bar -->
         <div class="mb-8 flex flex-wrap gap-4">
@@ -42,7 +42,7 @@
           <article 
             v-for="review in filteredReviews" 
             :key="review._path"
-            class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden"
+            class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden border border-gray-100"
           >
             <div class="aspect-video bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
               <img v-if="review.featured_image" :src="review.featured_image" :alt="review.title" class="w-full h-full object-contain p-4">
