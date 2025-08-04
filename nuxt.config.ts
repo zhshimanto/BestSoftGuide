@@ -1,14 +1,30 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/content'],
   css: ['~/assets/css/main.css'],
   
   // Static generation settings
   nitro: {
     preset: 'static',
     prerender: {
-      crawlLinks: true
+      crawlLinks: true,
+      routes: [
+        '/',
+        '/reviews',
+        '/categories',
+        '/blog'
+      ],
+      ignore: [
+        // Add paths to ignore during crawling if needed
+      ]
+    }
+  },
+  
+  hooks: {
+    'build:before': async () => {
+      // This would be the place to run the route generation script
+      // but we'll use the manual approach for now
     }
   },
   

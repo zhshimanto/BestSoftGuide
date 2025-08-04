@@ -5,9 +5,10 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
+    "generate:static": "node scripts/generate-routes.js && nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "deploy": "npm run generate && echo 'Build complete! Upload .output/public/ to Hostinger'"
+    "deploy": "npm run generate:static && echo 'Build complete! Upload .output/public/ to Hostinger'"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",

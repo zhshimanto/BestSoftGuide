@@ -8,7 +8,7 @@
             Software Reviews
           </h1>
           <p class="text-xl text-primary-100 max-w-3xl mx-auto">
-            Comprehensive, unbiased reviews of the latest software tools to help you make informed decisions.
+            Honest, in-depth reviews to help you choose the right software for your needs.
           </p>
         </div>
       </div>
@@ -45,7 +45,8 @@
             class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden"
           >
             <div class="aspect-video bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
-              <div class="text-4xl font-bold text-primary-600">
+              <img v-if="review.featured_image" :src="review.featured_image" :alt="review.title" class="w-full h-full object-contain p-4">
+              <div v-else class="text-4xl font-bold text-primary-600">
                 {{ review.title.charAt(0) }}
               </div>
             </div>
@@ -75,7 +76,7 @@
               
               <div class="flex items-center justify-between">
                 <span class="text-sm font-medium text-primary-600">
-                  {{ review.price }}
+                  {{ review.published_date ? new Date(review.published_date).toLocaleDateString() : '' }}
                 </span>
                 <NuxtLink 
                   :to="review._path"
@@ -98,8 +99,16 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
             </svg>
           </div>
-          <h3 class="text-lg font-medium text-gray-900 mb-2">No reviews found</h3>
-          <p class="text-gray-600">Try selecting a different category or check back later for new reviews.</p>
+          <h3 class="text-lg font-medium text-gray-900 mb-2">Coming Soon</h3>
+          <p class="text-gray-600 max-w-md mx-auto">We're adding new software reviews one by one. Check back soon for detailed, honest reviews of the best software tools.</p>
+          <div class="mt-6">
+            <NuxtLink to="/" class="inline-flex items-center px-4 py-2 bg-primary-600 text-white text-sm font-medium rounded-lg hover:bg-primary-700 transition-colors duration-200">
+              Back to Home
+              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+              </svg>
+            </NuxtLink>
+          </div>
         </div>
       </div>
     </section>
@@ -115,56 +124,30 @@ useHead({
   ]
 })
 
-// Static reviews data (temporary)
-const reviews = ref([
-  {
-    _path: '/reviews/notion',
-    title: 'Notion Review: The Ultimate All-in-One Workspace',
-    description: 'A comprehensive review of Notion, the popular productivity and note-taking app that combines databases, wikis, and project management.',
-    category: 'Productivity',
-    rating: 4.5,
-    price: 'Free / $8 per month',
-    author: 'BestSoftGuide Team',
-    published_date: '2024-01-15'
-  },
-  {
-    _path: '/reviews/slack',
-    title: 'Slack Review: Team Communication Made Easy',
-    description: 'An in-depth look at Slack, the leading team communication platform used by millions worldwide.',
-    category: 'Communication',
-    rating: 4.3,
-    price: 'Free / $6.67 per month',
-    author: 'BestSoftGuide Team',
-    published_date: '2024-01-10'
-  },
-  {
-    _path: '/reviews/figma',
-    title: 'Figma Review: Collaborative Design Tool',
-    description: 'A detailed review of Figma, the web-based design tool that has revolutionized collaborative design.',
-    category: 'Design',
-    rating: 4.7,
-    price: 'Free / $12 per month',
-    author: 'BestSoftGuide Team',
-    published_date: '2024-01-05'
-  }
-])
+// Fetch all reviews from content directory
+const { data: reviews } = await useAsyncData('reviews', () => queryContent('reviews').find())
 
-// Get unique categories
+// Debug log to check fetched reviews
+console.log('Reviews data:', reviews.value)
+
+const allReviews = ref(reviews.value || [])
+
+// Get unique categories from frontmatter
 const categories = computed(() => {
-  const cats = reviews.value.map(review => review.category)
+  const cats = allReviews.value.map(review => review.category).filter(Boolean)
   return [...new Set(cats)].sort()
 })
 
 // Filter state
 const selectedCategory = ref('all')
 
-// Filtered reviews
+// Filter reviews based on selected category
 const filteredReviews = computed(() => {
   if (selectedCategory.value === 'all') {
-    return reviews.value
+    return allReviews.value
   }
   
-  return reviews.value.filter(review => review.category === selectedCategory.value)
+  return allReviews.value.filter(review => review.category === selectedCategory.value)
 })
 </script>
 

@@ -29,7 +29,8 @@
               class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden"
             >
               <div class="aspect-video bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
-                <div class="text-4xl font-bold text-primary-600">
+                <img v-if="review.featured_image" :src="review.featured_image" :alt="review.title" class="w-full h-full object-contain p-4">
+                <div v-else class="text-4xl font-bold text-primary-600">
                   {{ review.title.charAt(0) }}
                 </div>
               </div>
@@ -59,7 +60,7 @@
                 
                 <div class="flex items-center justify-between">
                   <span class="text-sm font-medium text-primary-600">
-                    {{ review.price }}
+                    {{ review.published_date ? new Date(review.published_date).toLocaleDateString() : '' }}
                   </span>
                   <NuxtLink 
                     :to="review._path"
@@ -93,11 +94,11 @@
           <p class="text-gray-700 mb-6">{{ categoryData?.longDescription }}</p>
           
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <h3 class="text-lg font-semibold text-gray-900 mb-3">Popular Tools</h3>
+            <div v-if="categoryReviews.length > 0">
+              <h3 class="text-lg font-semibold text-gray-900 mb-3">Available Reviews</h3>
               <ul class="space-y-2">
-                <li v-for="tool in categoryData?.popularTools" :key="tool" class="text-gray-600">
-                  • {{ tool }}
+                <li v-for="review in categoryReviews.slice(0, 5)" :key="review._path" class="text-gray-600">
+                  • {{ review.title }}
                 </li>
               </ul>
             </div>
@@ -122,92 +123,98 @@
 const route = useRoute()
 const slug = route.params.slug
 
-// Static category data
-const categories = {
-  productivity: {
-    name: 'Productivity',
-    icon: '⚡',
-    description: 'Tools to boost your efficiency and get more done.',
-    longDescription: 'Productivity software helps individuals and teams work more efficiently by organizing tasks, managing time, and streamlining workflows. These tools range from simple to-do lists to comprehensive project management platforms.',
-    popularTools: ['Notion', 'Todoist', 'Asana', 'Trello', 'Slack'],
-    keyFeatures: ['Task management', 'Team collaboration', 'Time tracking', 'Integration capabilities', 'Mobile apps']
+// Define category metadata
+const categoryMeta = {
+  'email-marketing': { 
+    icon: '📧', 
+    description: 'Email marketing platforms and automation tools',
+    longDescription: 'Email marketing software helps businesses connect with their audience, automate campaigns, and analyze performance metrics.',
+    keyFeatures: ['Email automation', 'List management', 'Analytics', 'A/B testing', 'Template design']
   },
-  design: {
-    name: 'Design',
-    icon: '🎨',
-    description: 'Creative tools for designers and visual artists.',
-    longDescription: 'Design software empowers creative professionals to bring their ideas to life. From UI/UX design to graphic design and illustration, these tools provide the features needed for professional creative work.',
-    popularTools: ['Figma', 'Adobe Creative Suite', 'Sketch', 'Canva', 'InVision'],
-    keyFeatures: ['Vector editing', 'Collaboration features', 'Prototyping', 'Asset management', 'Export options']
+  'ecommerce': { 
+    icon: '🛒', 
+    description: 'Online store platforms and e-commerce solutions',
+    longDescription: 'E-commerce platforms enable businesses to sell products online with features for inventory, payments, and customer management.',
+    keyFeatures: ['Product management', 'Payment processing', 'Shopping cart', 'Customer accounts', 'Order fulfillment']
   },
-  development: {
-    name: 'Development',
-    icon: '💻',
-    description: 'Essential tools for developers and programmers.',
-    longDescription: 'Development tools help programmers write, test, and deploy code more efficiently. These include code editors, version control systems, testing frameworks, and deployment platforms.',
-    popularTools: ['VS Code', 'GitHub', 'Docker', 'Postman', 'Vercel'],
-    keyFeatures: ['Code editing', 'Version control', 'Debugging tools', 'API testing', 'Deployment automation']
+  'crm': { 
+    icon: '📊', 
+    description: 'Customer relationship management and sales tools',
+    longDescription: 'CRM software helps businesses manage customer interactions, track sales opportunities, and improve customer retention.',
+    keyFeatures: ['Contact management', 'Sales pipeline', 'Task automation', 'Reporting', 'Integration capabilities']
   },
-  communication: {
-    name: 'Communication',
-    icon: '💬',
-    description: 'Team collaboration and communication platforms.',
-    longDescription: 'Communication software facilitates team collaboration and information sharing. These tools help remote and distributed teams stay connected and work together effectively.',
-    popularTools: ['Slack', 'Microsoft Teams', 'Discord', 'Zoom', 'Telegram'],
-    keyFeatures: ['Instant messaging', 'Video calls', 'File sharing', 'Channel organization', 'Integration support']
+  'design': { 
+    icon: '🎨', 
+    description: 'Graphic design, UI/UX, and creative software solutions',
+    longDescription: 'Design software empowers creative professionals to create visual content, from graphics and illustrations to UI/UX designs.',
+    keyFeatures: ['Vector editing', 'Photo manipulation', 'Prototyping', 'Collaboration', 'Asset libraries']
   },
-  marketing: {
-    name: 'Marketing',
-    icon: '📈',
-    description: 'Tools to grow your business and reach customers.',
-    longDescription: 'Marketing software helps businesses promote their products and services, analyze customer behavior, and optimize their marketing campaigns for better results.',
-    popularTools: ['HubSpot', 'Mailchimp', 'Google Analytics', 'Hootsuite', 'Buffer'],
-    keyFeatures: ['Email marketing', 'Social media management', 'Analytics', 'Lead generation', 'Campaign automation']
+  'seo': { 
+    icon: '🔍', 
+    description: 'Search engine optimization and keyword research tools',
+    longDescription: 'SEO tools help websites improve their visibility in search engines through keyword research, backlink analysis, and performance tracking.',
+    keyFeatures: ['Keyword research', 'Rank tracking', 'Site audits', 'Competitor analysis', 'Backlink monitoring']
   },
-  security: {
-    name: 'Security',
-    icon: '🔒',
-    description: 'Protect your data and maintain privacy.',
-    longDescription: 'Security software protects digital assets from threats and ensures data privacy. These tools include antivirus software, password managers, VPNs, and encryption tools.',
-    popularTools: ['1Password', 'NordVPN', 'Malwarebytes', 'Bitwarden', 'LastPass'],
-    keyFeatures: ['Threat protection', 'Password management', 'Data encryption', 'Privacy protection', 'Multi-device support']
+  'ai-tools': { 
+    icon: '🤖', 
+    description: 'Artificial intelligence and machine learning software',
+    longDescription: 'AI tools leverage machine learning and artificial intelligence to automate tasks, generate content, and provide data-driven insights.',
+    keyFeatures: ['Content generation', 'Data analysis', 'Process automation', 'Natural language processing', 'Predictive analytics']
+  },
+  'project-management': { 
+    icon: '📝', 
+    description: 'Task management and team collaboration platforms',
+    longDescription: 'Project management software helps teams organize tasks, track progress, and collaborate effectively on projects of all sizes.',
+    keyFeatures: ['Task assignment', 'Progress tracking', 'Team collaboration', 'Resource management', 'Reporting']
+  },
+  'productivity': { 
+    icon: '⏱️', 
+    description: 'Note-taking, time management, and personal productivity tools',
+    longDescription: 'Productivity tools help individuals and teams organize information, manage time, and streamline workflows to get more done.',
+    keyFeatures: ['Note-taking', 'Task management', 'Calendar integration', 'Time tracking', 'Knowledge management']
+  },
+  'communication': { 
+    icon: '💬', 
+    description: 'Team chat, video conferencing, and messaging platforms',
+    longDescription: 'Communication software enables teams to collaborate through chat, video calls, and file sharing, whether working remotely or in-office.',
+    keyFeatures: ['Instant messaging', 'Video conferencing', 'File sharing', 'Screen sharing', 'Integration with other tools']
   }
 }
 
-const categoryData = computed(() => categories[slug] || null)
+// Get category data from slug
+const formattedName = slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
 
-// Static reviews data (same as in reviews page)
-const allReviews = [
-  {
-    _path: '/reviews/notion',
-    title: 'Notion Review: The Ultimate All-in-One Workspace',
-    description: 'A comprehensive review of Notion, the popular productivity and note-taking app that combines databases, wikis, and project management.',
-    category: 'Productivity',
-    rating: 4.5,
-    price: 'Free / $8 per month'
-  },
-  {
-    _path: '/reviews/slack',
-    title: 'Slack Review: Team Communication Made Easy',
-    description: 'An in-depth look at Slack, the leading team communication platform used by millions worldwide.',
-    category: 'Communication',
-    rating: 4.3,
-    price: 'Free / $6.67 per month'
-  },
-  {
-    _path: '/reviews/figma',
-    title: 'Figma Review: Collaborative Design Tool',
-    description: 'A detailed review of Figma, the web-based design tool that has revolutionized collaborative design.',
-    category: 'Design',
-    rating: 4.7,
-    price: 'Free / $12 per month'
+const categoryData = computed(() => {
+  const meta = categoryMeta[slug] || {
+    icon: '📁',
+    description: 'Software tools and solutions',
+    longDescription: 'Explore our collection of software tools and solutions in this category.',
+    keyFeatures: ['Easy to use', 'Reliable performance', 'Regular updates', 'Customer support', 'Value for money']
   }
-]
+  
+  return {
+    name: formattedName,
+    slug: slug,
+    ...meta
+  }
+})
+
+// Fetch all reviews from content directory
+const { data: allReviews } = await useAsyncData(`categoryReviews-${slug}`, () => queryContent('reviews').find())
 
 // Filter reviews by category
 const categoryReviews = computed(() => {
-  if (!categoryData.value) return []
-  return allReviews.filter(review => review.category === categoryData.value.name)
+  if (!categoryData.value || !allReviews.value) return []
+  
+  // Convert slug to category name (e.g., 'email-marketing' to 'Email Marketing')
+  const categoryName = slug.split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
+  
+  return allReviews.value.filter(review => {
+    // Match by category name from frontmatter
+    return review.category && review.category.toLowerCase() === categoryName.toLowerCase()
+  })
 })
 
 // SEO
