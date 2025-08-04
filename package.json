@@ -11,8 +11,8 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "generate:static": "nuxt generate --force",
+    "generate": "nuxt generate --verbose",
+    "generate:static": "nuxt generate --force --verbose",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "deploy": "npm run generate:static && echo 'Build complete! Upload .output/public/ to Hostinger'"

@@ -8,22 +8,14 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@nuxt/content'],
   
   // Content module configuration
-  content: {
-    documentDriven: false,
-    markdown: {
-      toc: {
-        depth: 3,
-        searchDepth: 3
-      }
-    }
-  },
+  content: {},
   css: ['~/assets/css/main.css'],
   
   // Static generation settings optimized for Node.js v22
   nitro: {
     preset: 'static',
     prerender: {
-      crawlLinks: true,
+      crawlLinks: false, // Disable crawling links to avoid potential issues
       failOnError: false, // Don't fail the build if a page fails to render
       routes: [
         '/',

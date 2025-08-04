@@ -136,7 +136,7 @@
           <!-- Author Info -->
           <div class="mt-12 pt-6 border-t border-gray-200 dark:border-gray-700">
             <div class="flex items-center">
-              <img src="/images/authors/john-smith.jpg" alt="John Smith" class="w-12 h-12 rounded-full mr-4" />
+              <img src="/images/authors/john-smith.png" alt="John Smith" class="w-12 h-12 rounded-full mr-4" />
               <div>
                 <h3 class="text-lg font-medium text-gray-900 dark:text-white">John Smith</h3>
                 <p class="text-gray-600 dark:text-gray-400">Productivity Software Expert</p>
