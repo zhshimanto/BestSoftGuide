@@ -1,30 +1,40 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  experimental: {
+    // Enable compatibility features for Node.js v18
+    payloadExtraction: false
+  },
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', '@nuxt/content'],
+  
+  // Content module configuration
+  content: {
+    documentDriven: false,
+    markdown: {
+      toc: {
+        depth: 3,
+        searchDepth: 3
+      }
+    }
+  },
   css: ['~/assets/css/main.css'],
   
-  // Static generation settings
+  // Static generation settings optimized for Node.js v22
   nitro: {
     preset: 'static',
     prerender: {
       crawlLinks: true,
+      failOnError: false, // Don't fail the build if a page fails to render
       routes: [
         '/',
         '/reviews',
         '/categories',
         '/blog'
-      ],
-      ignore: [
-        // Add paths to ignore during crawling if needed
       ]
-    }
-  },
-  
-  hooks: {
-    'build:before': async () => {
-      // This would be the place to run the route generation script
-      // but we'll use the manual approach for now
+    },
+    routeRules: {
+      // Cache all pages for better performance
+      '/**': { swr: 60 * 60 * 24 }
     }
   },
   

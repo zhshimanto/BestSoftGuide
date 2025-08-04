@@ -1,11 +1,18 @@
 {
   "name": "bestsoftguide",
   "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "imports": {
+    "#internal/nuxt/*": "./.nuxt/dist/server/*"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "generate:static": "node scripts/generate-routes.js && nuxt generate",
+    "generate:static": "nuxt generate --force",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "deploy": "npm run generate:static && echo 'Build complete! Upload .output/public/ to Hostinger'"

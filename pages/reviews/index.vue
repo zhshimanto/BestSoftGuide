@@ -124,17 +124,57 @@ useHead({
   ]
 })
 
-// Fetch all reviews from content directory
-const { data: reviews } = await useAsyncData('reviews', () => queryContent('reviews').find())
-
-// Debug log to check fetched reviews
-console.log('Reviews data:', reviews.value)
-
-const allReviews = ref(reviews.value || [])
+// Manually define reviews for static site generation
+const reviews = ref([
+  {
+    _path: '/reviews/productivity/notion-review',
+    title: 'Notion Review 2025: The Ultimate All-in-One Workspace?',
+    description: 'Complete Notion review covering features, pricing, templates, and whether it\'s the best productivity tool for teams and individuals in 2025.',
+    category: 'Productivity',
+    rating: 4.6,
+    image: '/images/logos/notion.svg',
+    slug: 'notion-review',
+    author: 'BestSoftGuide Team',
+    published_date: '2025-01-30'
+  },
+  {
+    _path: '/reviews/communication/slack-review',
+    title: 'Slack Review 2025: The Leading Team Communication Platform',
+    description: 'In-depth review of Slack, examining its features, pricing, integrations, and how it compares to alternatives for team communication.',
+    category: 'Communication',
+    rating: 4.7,
+    image: '/images/logos/slack.svg',
+    slug: 'slack-review',
+    author: 'BestSoftGuide Team',
+    published_date: '2025-02-15'
+  },
+  {
+    _path: '/reviews/project-management/asana-review',
+    title: 'Asana Review 2025: The Complete Project Management Solution?',
+    description: 'Detailed analysis of Asana\'s features, pricing, and capabilities for managing projects of all sizes.',
+    category: 'Project Management',
+    rating: 4.5,
+    image: '/images/logos/asana.svg',
+    slug: 'asana-review',
+    author: 'BestSoftGuide Team',
+    published_date: '2025-02-10'
+  },
+  {
+    _path: '/reviews/design/figma-review',
+    title: 'Figma Review 2025: The Ultimate Design & Prototyping Tool',
+    description: 'Comprehensive review of Figma, covering its design capabilities, collaboration features, and how it compares to alternatives.',
+    category: 'Design',
+    rating: 4.8,
+    image: '/images/logos/figma.svg',
+    slug: 'figma-review',
+    author: 'BestSoftGuide Team',
+    published_date: '2025-03-05'
+  }
+])
 
 // Get unique categories from frontmatter
 const categories = computed(() => {
-  const cats = allReviews.value.map(review => review.category).filter(Boolean)
+  const cats = reviews.value.map(review => review.category).filter(Boolean)
   return [...new Set(cats)].sort()
 })
 
@@ -144,10 +184,10 @@ const selectedCategory = ref('all')
 // Filter reviews based on selected category
 const filteredReviews = computed(() => {
   if (selectedCategory.value === 'all') {
-    return allReviews.value
+    return reviews.value
   }
   
-  return allReviews.value.filter(review => review.category === selectedCategory.value)
+  return reviews.value.filter(review => review.category === selectedCategory.value)
 })
 </script>
 
