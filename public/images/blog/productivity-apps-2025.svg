@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <!-- Background -->
+  <rect width="800" height="450" fill="#f0f9ff" />
+  
+  <!-- Decorative elements -->
+  <circle cx="100" cy="100" r="80" fill="#dbeafe" />
+  <circle cx="700" cy="350" r="100" fill="#dbeafe" />
+  
+  <!-- Main content -->
+  <g transform="translate(400, 225)">
+    <!-- Calendar icon -->
+    <rect x="-180" y="-100" width="120" height="140" rx="10" fill="#3b82f6" />
+    <rect x="-170" y="-90" width="100" height="20" rx="5" fill="#93c5fd" />
+    <rect x="-170" y="-60" width="20" height="20" rx="3" fill="#ffffff" />
+    <rect x="-140" y="-60" width="20" height="20" rx="3" fill="#ffffff" />
+    <rect x="-110" y="-60" width="20" height="20" rx="3" fill="#ffffff" />
+    <rect x="-170" y="-30" width="20" height="20" rx="3" fill="#ffffff" />
+    <rect x="-140" y="-30" width="20" height="20" rx="3" fill="#ffffff" />
+    <rect x="-110" y="-30" width="20" height="20" rx="3" fill="#ffffff" />
+    <rect x="-170" y="0" width="20" height="20" rx="3" fill="#ffffff" />
+    <rect x="-140" y="0" width="20" height="20" rx="3" fill="#ffffff" />
+    <rect x="-110" y="0" width="20" height="20" rx="3" fill="#ffffff" />
+    
+    <!-- Task list icon -->
+    <rect x="60" y="-100" width="120" height="140" rx="10" fill="#4f46e5" />
+    <rect x="70" y="-80" width="100" height="15" rx="3" fill="#c7d2fe" />
+    <rect x="70" y="-55" width="100" height="15" rx="3" fill="#c7d2fe" />
+    <rect x="70" y="-30" width="100" height="15" rx="3" fill="#c7d2fe" />
+    <rect x="70" y="-5" width="100" height="15" rx="3" fill="#c7d2fe" />
+    <rect x="70" y="20" width="100" height="15" rx="3" fill="#c7d2fe" />
+    
+    <!-- Check marks -->
+    <circle cx="-30" cy="-70" r="25" fill="#10b981" />
+    <path d="M-42,-70 L-30,-58 L-18,-82" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    
+    <circle cx="-30" cy="0" r="25" fill="#10b981" />
+    <path d="M-42,0 L-30,12 L-18,-12" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+  
+  <!-- Text -->
+  <text x="400" y="400" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#1e40af">Productivity Apps 2025</text>
+</svg>

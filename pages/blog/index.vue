@@ -21,49 +21,40 @@
           <!-- Main Content -->
           <div class="lg:col-span-2">
             <div class="space-y-8">
-              <article 
-                v-for="post in blogPosts" 
-                :key="post._path"
-                class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden"
-              >
-                <div class="aspect-video bg-gradient-to-br from-secondary-100 to-secondary-200 flex items-center justify-center">
-                  <div class="text-4xl font-bold text-secondary-600">
-                    {{ post.title.charAt(0) }}
-                  </div>
+              <!-- Static Blog Post 1 -->
+              <article class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
+                <div class="aspect-video bg-gradient-to-br from-secondary-100 to-secondary-200 flex items-center justify-center p-4">
+                  <img src="/images/blog/productivity-apps-2025.svg" alt="Productivity Apps 2025" class="h-full object-contain" />
                 </div>
                 
                 <div class="p-6">
                   <div class="flex items-center text-sm text-gray-500 mb-3">
-                    <span>{{ post.author }}</span>
+                    <span>BestSoftGuide Team</span>
                     <span class="mx-2">•</span>
-                    <span>{{ formatDate(post.published_date) }}</span>
-                    <span v-if="post.featured" class="ml-3 inline-block px-2 py-1 bg-primary-100 text-primary-700 text-xs font-medium rounded-full">
+                    <span>January 20, 2024</span>
+                    <span class="ml-3 inline-block px-2 py-1 bg-primary-100 text-primary-700 text-xs font-medium rounded-full">
                       Featured
                     </span>
                   </div>
                   
                   <h2 class="text-2xl font-bold text-gray-900 mb-3 hover:text-primary-600 transition-colors duration-200">
-                    <NuxtLink :to="post._path">
-                      {{ post.title }}
+                    <NuxtLink to="/blog/best-productivity-apps-2025">
+                      10 Best Productivity Apps for 2025
                     </NuxtLink>
                   </h2>
                   
                   <p class="text-gray-600 mb-4 line-clamp-3">
-                    {{ post.description }}
+                    Discover the top productivity applications that will boost your efficiency and help you get more done in 2025.
                   </p>
                   
                   <div class="flex items-center justify-between">
                     <div class="flex flex-wrap gap-2">
-                      <span 
-                        v-for="tag in post.tags?.slice(0, 3)" 
-                        :key="tag"
-                        class="inline-block px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full"
-                      >
-                        {{ tag }}
-                      </span>
+                      <span class="inline-block px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">productivity</span>
+                      <span class="inline-block px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">apps</span>
+                      <span class="inline-block px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">2024</span>
                     </div>
                     <NuxtLink 
-                      :to="post._path"
+                      to="/blog/best-productivity-apps-2024"
                       class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium transition-colors duration-200"
                     >
                       Read More
@@ -76,16 +67,6 @@
               </article>
             </div>
 
-            <!-- Empty State -->
-            <div v-if="blogPosts.length === 0" class="text-center py-16">
-              <div class="text-gray-400 mb-4">
-                <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
-                </svg>
-              </div>
-              <h3 class="text-lg font-medium text-gray-900 mb-2">No blog posts yet</h3>
-              <p class="text-gray-600">Check back later for new articles and insights.</p>
-            </div>
           </div>
 
           <!-- Sidebar -->
@@ -95,12 +76,20 @@
               <div class="bg-white rounded-xl shadow-sm p-6">
                 <h3 class="text-lg font-semibold text-gray-900 mb-4">Popular Tags</h3>
                 <div class="flex flex-wrap gap-2">
-                  <span 
-                    v-for="tag in popularTags" 
-                    :key="tag"
-                    class="inline-block px-3 py-1 bg-gray-100 hover:bg-primary-100 text-gray-700 hover:text-primary-700 text-sm rounded-full cursor-pointer transition-colors duration-200"
-                  >
-                    {{ tag }}
+                  <span class="inline-block px-3 py-1 bg-gray-100 hover:bg-primary-100 text-gray-700 hover:text-primary-700 text-sm rounded-full cursor-pointer transition-colors duration-200">
+                    productivity
+                  </span>
+                  <span class="inline-block px-3 py-1 bg-gray-100 hover:bg-primary-100 text-gray-700 hover:text-primary-700 text-sm rounded-full cursor-pointer transition-colors duration-200">
+                    apps
+                  </span>
+                  <span class="inline-block px-3 py-1 bg-gray-100 hover:bg-primary-100 text-gray-700 hover:text-primary-700 text-sm rounded-full cursor-pointer transition-colors duration-200">
+                    2024
+                  </span>
+                  <span class="inline-block px-3 py-1 bg-gray-100 hover:bg-primary-100 text-gray-700 hover:text-primary-700 text-sm rounded-full cursor-pointer transition-colors duration-200">
+                    security
+                  </span>
+                  <span class="inline-block px-3 py-1 bg-gray-100 hover:bg-primary-100 text-gray-700 hover:text-primary-700 text-sm rounded-full cursor-pointer transition-colors duration-200">
+                    cybersecurity
                   </span>
                 </div>
               </div>
@@ -137,44 +126,10 @@ useHead({
   ]
 })
 
-// Static blog posts data
-const blogPosts = ref([
-  {
-    _path: '/blog/best-productivity-apps-2024',
-    title: '10 Best Productivity Apps for 2024',
-    description: 'Discover the top productivity applications that will boost your efficiency and help you get more done in 2024.',
-    category: 'Blog',
-    author: 'BestSoftGuide Team',
-    published_date: '2024-01-20',
-    updated_date: '2024-01-20',
-    tags: ['productivity', 'apps', '2024', 'efficiency'],
-    featured: true
-  }
-])
+//  dynamic data
 
-// Get popular tags
-const popularTags = computed(() => {
-  const allTags = blogPosts.value.flatMap(post => post.tags || [])
-  const tagCounts = allTags.reduce((acc, tag) => {
-    acc[tag] = (acc[tag] || 0) + 1
-    return acc
-  }, {})
-  
-  return Object.entries(tagCounts)
-    .sort(([,a], [,b]) => b - a)
-    .slice(0, 10)
-    .map(([tag]) => tag)
-})
 
-// Helper function to format dates
-const formatDate = (dateString) => {
-  if (!dateString) return ''
-  return new Date(dateString).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  })
-}
+
 </script>
 
 <style scoped>
