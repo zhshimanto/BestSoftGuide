@@ -13,102 +13,85 @@
         </div>
       </div>
     </section>
-
-    <!-- Reviews Grid -->
-    <section class="py-16 bg-white">
+    
+    <section class="py-8 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Filter Bar -->
-        <div class="mb-8 flex flex-wrap gap-4">
-          <button 
-            @click="selectedCategory = 'all'"
-            :class="selectedCategory === 'all' ? 'bg-primary-600 text-white' : 'bg-white text-gray-700 hover:bg-gray-50'"
-            class="px-4 py-2 rounded-lg border transition-colors duration-200"
-          >
-            All Reviews
-          </button>
-          <button 
-            v-for="category in categories"
-            :key="category"
-            @click="selectedCategory = category"
-            :class="selectedCategory === category ? 'bg-primary-600 text-white' : 'bg-white text-gray-700 hover:bg-gray-50'"
-            class="px-4 py-2 rounded-lg border transition-colors duration-200"
-          >
-            {{ category }}
-          </button>
-        </div>
-
-        <!-- Reviews Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <article 
-            v-for="review in filteredReviews" 
-            :key="review._path"
-            class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden border border-gray-100"
-          >
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Asana Review Card -->
+          <article class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden border border-gray-100">
             <div class="aspect-video bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
-              <img v-if="review.featured_image" :src="review.featured_image" :alt="review.title" class="w-full h-full object-contain p-4">
-              <div v-else class="text-4xl font-bold text-primary-600">
-                {{ review.title.charAt(0) }}
-              </div>
+              <img src="/images/logos/asana.svg" alt="Asana Review 2025 hero image" class="w-full h-full object-contain p-4" loading="lazy">
             </div>
-            
             <div class="p-6">
               <div class="flex items-center justify-between mb-3">
-                <span class="inline-block px-3 py-1 bg-primary-100 text-primary-700 text-sm font-medium rounded-full">
-                  {{ review.category }}
-                </span>
+                <span class="inline-block px-3 py-1 bg-primary-100 text-primary-700 text-sm font-medium rounded-full">Project Management</span>
                 <div class="flex items-center">
-                  <div class="flex text-yellow-400">
-                    <svg v-for="i in 5" :key="i" class="w-4 h-4" :class="i <= Math.floor(review.rating) ? 'fill-current' : 'text-gray-300'" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                    </svg>
+                  <!-- Star Rating (4.5/5) -->
+                  <div class="flex">
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                   </div>
-                  <span class="ml-1 text-sm text-gray-600">{{ review.rating }}</span>
+                  <span class="text-sm text-gray-600 ml-1">4.5/5</span>
                 </div>
               </div>
-              
-              <h2 class="text-xl font-bold text-gray-900 mb-2 line-clamp-2">
-                {{ review.title }}
+              <h2 class="text-xl font-bold mb-2 text-gray-900 hover:text-primary-600">
+                <a href="/reviews/project-management/asana-review" class="hover:underline" aria-label="Read full Asana review">
+                  Asana Review 2025: The Complete Project Management Solution?
+                </a>
               </h2>
-              
               <p class="text-gray-600 mb-4 line-clamp-3">
-                {{ review.description }}
+                Detailed analysis of Asana's features, pricing, and capabilities for managing projects of all sizes.
               </p>
-              
               <div class="flex items-center justify-between">
-                <span class="text-sm font-medium text-primary-600">
-                  {{ review.published_date ? new Date(review.published_date).toLocaleDateString() : '' }}
-                </span>
-                <NuxtLink 
-                  :to="review._path"
-                  class="inline-flex items-center px-4 py-2 bg-primary-600 text-white text-sm font-medium rounded-lg hover:bg-primary-700 transition-colors duration-200"
-                >
-                  Read Review
-                  <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                  </svg>
-                </NuxtLink>
+                <div class="flex items-center">
+                  <img src="/images/authors/john-smith.png" alt="John Smith" class="w-8 h-8 rounded-full mr-2" loading="lazy">
+                  <span class="text-sm text-gray-600">John Smith</span>
+                </div>
+                <span class="text-sm text-gray-500">July 15, 2025</span>
               </div>
             </div>
           </article>
-        </div>
 
-        <!-- Empty State -->
-        <div v-if="filteredReviews.length === 0" class="text-center py-16">
-          <div class="text-gray-400 mb-4">
-            <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-            </svg>
-          </div>
-          <h3 class="text-lg font-medium text-gray-900 mb-2">Coming Soon</h3>
-          <p class="text-gray-600 max-w-md mx-auto">We're adding new software reviews one by one. Check back soon for detailed, honest reviews of the best software tools.</p>
-          <div class="mt-6">
-            <NuxtLink to="/" class="inline-flex items-center px-4 py-2 bg-primary-600 text-white text-sm font-medium rounded-lg hover:bg-primary-700 transition-colors duration-200">
-              Back to Home
-              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-              </svg>
-            </NuxtLink>
-          </div>
+          <!-- Canva Review Card -->
+          <article class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden border border-gray-100">
+            <div class="aspect-video bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center">
+              <img src="/images/logos/canva.svg" alt="Canva Review 2025 hero image" class="w-full h-full object-contain p-4" loading="lazy">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-3">
+                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-sm font-medium rounded-full">Design</span>
+                <div class="flex items-center">
+                  <!-- Star Rating (4.6/5) -->
+                  <div class="flex">
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5 text-yellow-400 opacity-60" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                  </div>
+                  <span class="text-sm text-gray-600 ml-1">4.6/5</span>
+                </div>
+              </div>
+              <h2 class="text-xl font-bold mb-2 text-gray-900 hover:text-primary-600">
+                <a href="/reviews/design/canva-review" class="hover:underline" aria-label="Read full Canva review">
+                  Canva Review 2025: The Best Online Design Tool?
+                </a>
+              </h2>
+              <p class="text-gray-600 mb-4 line-clamp-3">
+                Comprehensive Canva review covering features, pricing, pros & cons, and why Canva is the top choice for design in 2025.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <img src="/images/authors/sarah-johnson.png" alt="Sarah Johnson" class="w-8 h-8 rounded-full mr-2" loading="lazy">
+                  <span class="text-sm text-gray-600">Sarah Johnson</span>
+                </div>
+                <span class="text-sm text-gray-500">August 2, 2025</span>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -116,95 +99,25 @@
 </template>
 
 <script setup>
-// SEO
+import { useHead } from '#imports';
+
 useHead({
   title: 'Software Reviews - BestSoftGuide',
   meta: [
-    { name: 'description', content: 'Read comprehensive software reviews and find the best tools for your needs. Unbiased ratings and detailed analysis.' }
+    { name: 'description', content: 'Read comprehensive software reviews and find the best tools for your needs. Unbiased ratings and detailed analysis.' },
+    { name: 'keywords', content: 'software reviews, Asana review, Canva review, project management tools, design tools' },
+    { property: 'og:title', content: 'Software Reviews - BestSoftGuide' },
+    { property: 'og:description', content: 'Read comprehensive software reviews and find the best tools for your needs. Unbiased ratings and detailed analysis.' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://bestsoftguide.com/reviews/' },
+    { property: 'og:image', content: 'https://bestsoftguide.com/images/logos/asana.svg' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Software Reviews - BestSoftGuide' },
+    { name: 'twitter:description', content: 'Read comprehensive software reviews and find the best tools for your needs.' }
   ]
-})
-
-// Manually define reviews for static site generation
-const reviews = ref([
-  {
-    _path: '/reviews/productivity/notion-review',
-    title: 'Notion Review 2025: The Ultimate All-in-One Workspace?',
-    description: 'Complete Notion review covering features, pricing, templates, and whether it\'s the best productivity tool for teams and individuals in 2025.',
-    category: 'Productivity',
-    rating: 4.6,
-    image: '/images/logos/notion.svg',
-    slug: 'notion-review',
-    author: 'BestSoftGuide Team',
-    published_date: '2025-01-30'
-  },
-  {
-    _path: '/reviews/communication/slack-review',
-    title: 'Slack Review 2025: The Leading Team Communication Platform',
-    description: 'In-depth review of Slack, examining its features, pricing, integrations, and how it compares to alternatives for team communication.',
-    category: 'Communication',
-    rating: 4.7,
-    image: '/images/logos/slack.svg',
-    slug: 'slack-review',
-    author: 'BestSoftGuide Team',
-    published_date: '2025-02-15'
-  },
-  {
-    _path: '/reviews/project-management/asana-review',
-    title: 'Asana Review 2025: The Complete Project Management Solution?',
-    description: 'Detailed analysis of Asana\'s features, pricing, and capabilities for managing projects of all sizes.',
-    category: 'Project Management',
-    rating: 4.5,
-    image: '/images/logos/asana.svg',
-    slug: 'asana-review',
-    author: 'BestSoftGuide Team',
-    published_date: '2025-02-10'
-  },
-  {
-    _path: '/reviews/design/figma-review',
-    title: 'Figma Review 2025: The Ultimate Design & Prototyping Tool',
-    description: 'Comprehensive review of Figma, covering its design capabilities, collaboration features, and how it compares to alternatives.',
-    category: 'Design',
-    rating: 4.8,
-    image: '/images/logos/figma.svg',
-    slug: 'figma-review',
-    author: 'BestSoftGuide Team',
-    published_date: '2025-03-05'
-  }
-])
-
-// Get unique categories from frontmatter
-const categories = computed(() => {
-  const cats = reviews.value.map(review => review.category).filter(Boolean)
-  return [...new Set(cats)].sort()
-})
-
-// Filter state
-const selectedCategory = ref('all')
-
-// Filter reviews based on selected category
-const filteredReviews = computed(() => {
-  if (selectedCategory.value === 'all') {
-    return reviews.value
-  }
-  
-  return reviews.value.filter(review => review.category === selectedCategory.value)
-})
+});
 </script>
 
-<style scoped>
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
+<style>
+/* Add any global styles here if needed */
 </style>
