@@ -28,7 +28,9 @@ export default defineNuxtConfig({
         '/',
         '/reviews',
         '/categories',
-        '/blog'
+        '/blog',
+        '/categories/email-marketing',
+        '/reviews/email-marketing/convertkit-review'
       ]
     },
     routeRules: {

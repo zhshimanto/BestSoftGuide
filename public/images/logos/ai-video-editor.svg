@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="95" fill="#6366F1" />
+  <circle cx="100" cy="100" r="85" fill="#818CF8" />
+  
+  <!-- Video Camera Body -->
+  <rect x="50" y="70" width="80" height="60" rx="5" fill="#1E293B" />
+  
+  <!-- Camera Lens -->
+  <circle cx="75" cy="100" r="15" fill="#0F172A" />
+  <circle cx="75" cy="100" r="10" fill="#334155" />
+  <circle cx="75" cy="100" r="5" fill="#1E293B" />
+  <circle cx="71" cy="96" r="2" fill="white" opacity="0.7" />
+  
+  <!-- AI Circuit Pattern -->
+  <path d="M140 80 L160 80 L160 90 L150 90 L150 100 L160 100 L160 110 L140 110 Z" stroke="#E0E7FF" stroke-width="2" fill="none" />
+  <circle cx="140" cy="80" r="3" fill="#E0E7FF" />
+  <circle cx="160" cy="80" r="3" fill="#E0E7FF" />
+  <circle cx="160" cy="90" r="3" fill="#E0E7FF" />
+  <circle cx="150" cy="90" r="3" fill="#E0E7FF" />
+  <circle cx="150" cy="100" r="3" fill="#E0E7FF" />
+  <circle cx="160" cy="100" r="3" fill="#E0E7FF" />
+  <circle cx="160" cy="110" r="3" fill="#E0E7FF" />
+  <circle cx="140" cy="110" r="3" fill="#E0E7FF" />
+  
+  <!-- Video Timeline -->
+  <rect x="45" y="140" width="110" height="10" rx="5" fill="#E0E7FF" />
+  <rect x="55" y="140" width="30" height="10" rx="0" fill="#4F46E5" />
+  <rect x="95" y="140" width="20" height="10" rx="0" fill="#4F46E5" />
+  <rect x="125" y="140" width="15" height="10" rx="0" fill="#4F46E5" />
+  
+  <!-- Play Button -->
+  <circle cx="100" cy="100" r="25" fill="#4F46E5" opacity="0.9" />
+  <path d="M92 85 L115 100 L92 115 Z" fill="white" />
+  
+  <!-- AI Text -->
+  <text x="100" y="40" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">AI VIDEO EDITOR</text>
+</svg>
