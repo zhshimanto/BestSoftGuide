@@ -34,7 +34,8 @@ export default defineNuxtConfig({
         '/reviews/email-marketing/convertkit-review-2025',
         '/reviews/communication/discord-review',
         '/blog/best-productivity-apps-2025',
-        '/blog/email-marketing-automation-guide'
+        '/blog/email-marketing-automation-guide',
+        '/reviews/productivity/evernote-review'
       ]
     },
     routeRules: {
