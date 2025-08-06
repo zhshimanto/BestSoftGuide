@@ -38,7 +38,7 @@
                 </div>
               </div>
               <h2 class="text-xl font-bold mb-2 text-gray-900 hover:text-primary-600">
-                <a href="/reviews/communication/discord-review-2025" class="hover:underline" aria-label="Read full Discord review">
+                <a href="/reviews/communication/discord-review" class="hover:underline" aria-label="Read full Discord review">
                   Discord Review 2025: The Ultimate Communication Platform
                 </a>
               </h2>
