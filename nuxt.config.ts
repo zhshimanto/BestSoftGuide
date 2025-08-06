@@ -22,7 +22,7 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'static',
     prerender: {
-      crawlLinks: false, // Disable crawling links to avoid potential issues
+      crawlLinks: true, // Enable crawling links to discover all pages
       failOnError: false, // Don't fail the build if a page fails to render
       routes: [
         '/',
@@ -30,7 +30,11 @@ export default defineNuxtConfig({
         '/categories',
         '/blog',
         '/categories/email-marketing',
-        '/reviews/email-marketing/convertkit-review'
+        '/reviews/email-marketing/convertkit-review',
+        '/reviews/email-marketing/convertkit-review-2025',
+        '/reviews/communication/discord-review',
+        '/blog/best-productivity-apps-2025',
+        '/blog/email-marketing-automation-guide'
       ]
     },
     routeRules: {
