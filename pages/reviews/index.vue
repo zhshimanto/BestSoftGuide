@@ -17,6 +17,82 @@
     <section class="py-8 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Discord Review Card -->
+          <article class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden border border-gray-100">
+            <div class="aspect-video bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center">
+              <img src="/images/logos/discord.svg" alt="Discord Review 2025 hero image" class="w-full h-full object-contain p-4" loading="lazy">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-3">
+                <span class="inline-block px-3 py-1 bg-indigo-100 text-indigo-700 text-sm font-medium rounded-full">Communication</span>
+                <div class="flex items-center">
+                  <!-- Star Rating (4.8/5) -->
+                  <div class="flex">
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5 text-yellow-400 opacity-80" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                  </div>
+                  <span class="text-sm text-gray-600 ml-1">4.8/5</span>
+                </div>
+              </div>
+              <h2 class="text-xl font-bold mb-2 text-gray-900 hover:text-primary-600">
+                <a href="/reviews/communication/discord-review-2025" class="hover:underline" aria-label="Read full Discord review">
+                  Discord Review 2025: The Ultimate Communication Platform
+                </a>
+              </h2>
+              <p class="text-gray-600 mb-4 line-clamp-3">
+                Comprehensive Discord review covering features, pricing, pros & cons, and alternatives to decide if it's the right communication platform for your communities and teams.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <img src="/images/authors/john-smith.png" alt="John Smith" class="w-8 h-8 rounded-full mr-2" loading="lazy">
+                  <span class="text-sm text-gray-500">John Smith</span>
+                </div>
+                <span class="text-sm text-gray-500">August 6, 2025</span>
+              </div>
+            </div>
+          </article>
+          
+          <!-- ConvertKit Review Card -->
+          <article class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden border border-gray-100">
+            <div class="aspect-video bg-gradient-to-br from-green-100 to-teal-100 flex items-center justify-center">
+              <img src="/images/logos/convertkit.svg" alt="ConvertKit Review 2025 hero image" class="w-full h-full object-contain p-4" loading="lazy">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-3">
+                <span class="inline-block px-3 py-1 bg-green-100 text-green-700 text-sm font-medium rounded-full">Email Marketing</span>
+                <div class="flex items-center">
+                  <!-- Star Rating (4.8/5) -->
+                  <div class="flex">
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5 text-yellow-400 opacity-80" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                  </div>
+                  <span class="text-sm text-gray-600 ml-1">4.8/5</span>
+                </div>
+              </div>
+              <h2 class="text-xl font-bold mb-2 text-gray-900 hover:text-primary-600">
+                <a href="/reviews/email-marketing/convertkit-review-2025" class="hover:underline" aria-label="Read full ConvertKit review">
+                  ConvertKit Review 2025: The Ultimate Email Marketing Platform for Creators
+                </a>
+              </h2>
+              <p class="text-gray-600 mb-4 line-clamp-3">
+                A comprehensive, data-driven review of ConvertKit—features, pricing, pros & cons, alternatives, and everything you need to know before choosing it for your email marketing needs.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <img src="/images/authors/sarah-johnson.png" alt="Sarah Johnson" class="w-8 h-8 rounded-full mr-2" loading="lazy">
+                  <span class="text-sm text-gray-500">Sarah Johnson</span>
+                </div>
+                <span class="text-sm text-gray-500">August 6, 2025</span>
+              </div>
+            </div>
+          </article>
+          
           <!-- AI Video Editors Review Card -->
           <article class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden border border-gray-100">
             <div class="aspect-video bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center">
@@ -179,8 +255,8 @@ import { useHead } from '#imports';
 useHead({
   title: 'Software Reviews - BestSoftGuide',
   meta: [
-    { name: 'description', content: 'Read comprehensive software reviews and find the best tools for your needs. Unbiased ratings and detailed analysis of project management, design, and email marketing tools.' },
-    { name: 'keywords', content: 'software reviews, Asana review, Canva review, ConvertKit review, project management tools, design tools, email marketing software' },
+    { name: 'description', content: 'Read comprehensive software reviews and find the best tools for your needs. Unbiased ratings and detailed analysis of project management, design, email marketing, and communication tools.' },
+    { name: 'keywords', content: 'software reviews, Asana review, Canva review, ConvertKit review, Discord review, project management tools, design tools, email marketing software, communication platforms' },
     { property: 'og:title', content: 'Software Reviews - BestSoftGuide' },
     { property: 'og:description', content: 'Read comprehensive software reviews and find the best tools for your needs. Unbiased ratings and detailed analysis.' },
     { property: 'og:type', content: 'website' },

@@ -323,14 +323,14 @@ useHead({
     // Open Graph
     { property: 'og:title', content: 'Email Marketing & Automation in 2025: ConvertKit Guide' },
     { property: 'og:description', content: 'Learn how creators and businesses are leveraging ConvertKit for email marketing automation to build audiences and drive revenue in 2025.' },
-    { property: 'og:image', content: 'https://bestsoftguide.com/images/blog/email-marketing-automation.svg' },
+    { property: 'og:image', content: 'https://bestsoftguide.com/images/blog/email-marketing-automation-fixed.svg' },
     { property: 'og:url', content: 'https://bestsoftguide.com/blog/email-marketing-automation-guide' },
     { property: 'og:type', content: 'article' },
     // Twitter Card
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: 'Email Marketing & Automation in 2025: ConvertKit Guide' },
     { name: 'twitter:description', content: 'Learn how creators and businesses are leveraging ConvertKit for email marketing automation to build audiences and drive revenue in 2025.' },
-    { name: 'twitter:image', content: 'https://bestsoftguide.com/images/blog/email-marketing-automation.svg' },
+    { name: 'twitter:image', content: 'https://bestsoftguide.com/images/blog/email-marketing-automation-fixed.svg' },
   ],
   link: [
     { 
