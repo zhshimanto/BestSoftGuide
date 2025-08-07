@@ -35,7 +35,9 @@ export default defineNuxtConfig({
         '/reviews/communication/discord-review',
         '/blog/best-productivity-apps-2025',
         '/blog/email-marketing-automation-guide',
-        '/reviews/productivity/evernote-review'
+        '/reviews/productivity/evernote-review',
+        '/reviews/writing/grammarly-review',
+        '/reviews/writing/jasper-review',
       ]
     },
     routeRules: {

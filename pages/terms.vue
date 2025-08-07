@@ -163,7 +163,7 @@
           <ul>
             <li><strong>Email:</strong> legal@bestsoftguide.com</li>
             <li><strong>Contact Form:</strong> <NuxtLink to="/contact" class="text-primary-600 hover:text-primary-700">Use our contact form</NuxtLink></li>
-            <li><strong>Mail:</strong> BestSoftGuide Legal Team, [Your Address]</li>
+            <li><strong>Mail:</strong> BestSoftGuide Legal Team</li>
           </ul>
 
           <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 mt-8">
