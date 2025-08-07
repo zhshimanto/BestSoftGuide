@@ -1,5 +1,5 @@
 <template>
-<div class="min-h-screen bg-white">
+<div class="bg-white">
     <!-- Hero Section -->
     <section class="bg-gradient-to-r from-orange-50 to-yellow-50 py-16 border-b border-gray-100">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
